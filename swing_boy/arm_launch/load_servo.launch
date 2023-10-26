@@ -1,0 +1,6 @@
+<launch>
+    <node name="servo_server" pkg="moveit_servo" type="servo_server" output="screen">
+        <param name="parameter_ns" type="string" value="swing_boy"/>
+        <rosparam command="load" file="$(find swing_boy)/arm_config/servo.yaml"/>
+    </node>
+</launch>

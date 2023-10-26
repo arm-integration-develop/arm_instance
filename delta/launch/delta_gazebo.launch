@@ -1,0 +1,10 @@
+<launch>
+    <!-- Start Gazebo paused to allow the controllers to pickup the initial pose -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" pass_all_args="true">
+        <arg name="paused" value="false"/>
+    </include>
+    <arg name="load_robot_description" default="true"/>
+    <param name="robot_description" command="$(find xacro)/xacro $(find delta)/urdf/delta.urdf.xacro" if="$(arg load_robot_description)"/>
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" clear_params="true"
+      args="-z 0.5 -param robot_description -urdf -model robot " output="screen"/>
+</launch>

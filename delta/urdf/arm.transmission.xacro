@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm">
+
+    <xacro:macro name="arm_transmission">
+        <transmission name="trans_active_joint1">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="active_joint1_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="active_joint1">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_up_a_joint1">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_up_a_joint1_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_up_a_joint1">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_up_b_joint1">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_up_b_joint1_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_up_b_joint1">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_down_a_joint1">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_up_down_joint1_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_down_a_joint1">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_down_b_joint1">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_down_b_joint1_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_down_b_joint1">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+
+        <transmission name="trans_active_joint2">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="active_joint2_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="active_joint2">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_up_a_joint2">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_up_a_joint2_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_up_a_joint2">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_up_b_joint2">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_up_b_joint2_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_up_b_joint2">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_down_a_joint2">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_up_down_joint2_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_down_a_joint2">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_down_b_joint2">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_down_b_joint2_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_down_b_joint2">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_active_joint3">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="active_joint3_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="active_joint3">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_up_a_joint3">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_up_a_joint3_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_up_a_joint3">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_up_b_joint3">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_up_b_joint3_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_up_b_joint3">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_down_a_joint3">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_up_down_joint3_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_down_a_joint3">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_parallel_down_b_joint3">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="parallel_down_b_joint3_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="parallel_down_b_joint3">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+
+        <transmission name="trans_computer_x_joint">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="computer_x_joint_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="computer_x_joint">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+        <transmission name="trans_computer_y_joint">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="computer_y_joint_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="computer_y_joint">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+        <transmission name="trans_computer_EE_joint">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="computer_EE_joint_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="computer_EE_joint">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+    </xacro:macro>
+
+</robot>

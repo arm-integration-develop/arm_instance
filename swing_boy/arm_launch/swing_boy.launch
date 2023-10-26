@@ -1,0 +1,34 @@
+<launch>
+<!--    Load urdf-->
+    <param name="robot_description" textfile="$(find swing_boy)/urdf/swing_boy.urdf" />
+<!--    Load hw-->
+    <rosparam file="$(find arm_hw)/config/actuator_coefficient.yaml" command="load" ns = "arm_hw"/>
+    <rosparam file="$(find swing_boy)/arm_config/arm_hw.yaml" command="load" />
+    <node name="arm_hw" pkg="arm_hw" type="arm_hw" respawn="false"
+          clear_params="true" />
+<!--    Load controllers-->
+    <rosparam file="$(find swing_boy)/arm_config/controllers.yaml" command="load"/>
+    <node name="controller_loader" pkg="controller_manager" type="controller_manager" output="screen"
+          args="load
+          controllers/joint_state_controller
+          controllers/arm_trajectory_controller
+    "/>
+<!--    Load move_group-->
+    <arg name="load_robot_description" default="false"/>
+
+    <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+    <include file="$(find swing_boy)/launch/planning_context.launch">
+        <arg name="load_robot_description" value="$(arg load_robot_description)"/>
+    </include>
+    <include file="$(find swing_boy)/launch/move_group.launch">
+        <arg name="allow_trajectory_execution" value="true"/>
+        <arg name="fake_execution" value="false"/>
+        <arg name="info" value="true"/>
+        <arg name="debug" value="false"/>
+        <arg name="load_robot_description" value="$(arg load_robot_description)"/>
+    </include>
+<!--    Load robot_state_publisher-->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+<!--    Rviz-->
+    <include file="$(find swing_boy)/launch/moveit_rviz.launch"/>
+</launch>

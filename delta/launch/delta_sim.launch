@@ -1,0 +1,18 @@
+<launch>
+    <!-- comentarios -->
+    <arg name="model" />
+    <arg name="gui" default="true" />
+    <arg name="load_robot_description" default="true"/>
+    <param name="robot_description" command="$(find xacro)/xacro $(find delta)/urdf/delta.urdf.xacro" if="$(arg load_robot_description)"/>
+    <param name="use_gui" value="$(arg gui)"/>
+
+
+    <arg name="rviz_config" value="$(find delta)/launch/delta_sim.rviz"/>
+    <arg if="$(eval rviz_config=='')" name="command_args" value=""/>
+    <arg unless="$(eval rviz_config=='')" name="command_args" value="-d $(arg rviz_config)"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="delta_rviz" pkg="rviz" type="rviz" respawn="false"
+          args="$(arg command_args)" output="screen">
+    </node>
+</launch>

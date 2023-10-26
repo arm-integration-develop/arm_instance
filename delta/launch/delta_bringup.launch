@@ -1,0 +1,10 @@
+<launch>
+    <arg name="load_robot_description" value="true"/>
+    <include file="$(find delta)/launch/delta_sim.launch" pass_all_args="true">
+        <arg name="load_robot_description" value="$(arg load_robot_description)"/>
+    </include>
+    <include file="$(find delta)/launch/delta_gazebo.launch" pass_all_args="true">
+        <arg name="load_robot_description" value="false"/>
+    </include>
+    <include file="$(find delta)/launch/load_controllers.launch"/>
+</launch>

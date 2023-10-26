@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm">
+
+    <xacro:macro name="arm">
+        <xacro:property name="k_f" value="0.141067"/>
+        <xacro:property name="k_e" value="0.065287"/>
+        <xacro:property name="r_f" value="0.09"/>
+        <xacro:property name="r_e" value="0.192"/>
+        <xacro:property name="active_joint_d" value="0.040721"/>
+        <xacro:property name="parallel_d" value="0.096108"/>
+        <xacro:property name="parallel_h" value="0.166214"/>
+        <xacro:property name="PI_3" value="1.04619753"/>
+        <xacro:property name="PI_3_2" value="2.09439507"/>
+        <xacro:property name="v120_deg_2_rad" value="2.09439504"/>
+        <xacro:property name="v240_deg_2_rad" value="4.18879013"/>
+
+
+        <xacro:property name="active_arm_ixx" value="4.714e-6"/>
+        <xacro:property name="active_arm_ixy" value="0."/>
+        <xacro:property name="active_arm_ixz" value="0."/>
+        <xacro:property name="active_arm_iyy" value="2.577e-8"/>
+        <xacro:property name="active_arm_iyz" value="-8.235e-18"/>
+        <xacro:property name="active_arm_izz" value="4.707e-6"/>
+        <xacro:property name="active_arm_mass" value="0.00457"/>
+        <xacro:property name="active_arm_x" value="0."/>
+        <xacro:property name="active_arm_y" value="-0.042671"/>
+        <xacro:property name="active_arm_z" value="0."/>
+
+        <xacro:property name="passive_arm_ixx" value="4.4636101e-5"/>
+        <xacro:property name="passive_arm_ixy" value="7.8174e-8"/>
+        <xacro:property name="passive_arm_ixz" value="0."/>
+        <xacro:property name="passive_arm_iyy" value="8.2492e-8"/>
+        <xacro:property name="passive_arm_iyz" value="1.379e-19"/>
+        <xacro:property name="passive_arm_izz" value="4.4642e-5"/>
+        <xacro:property name="passive_arm_mass" value="0.011"/>
+        <xacro:property name="passive_arm_x" value="-0.00168"/>
+        <xacro:property name="passive_arm_y" value="0.096"/>
+        <xacro:property name="passive_arm_z" value="0."/>
+
+        <xacro:property name="parallel_up_ixx" value="3.16967e-7"/>
+        <xacro:property name="parallel_up_ixy" value="0.00"/>
+        <xacro:property name="parallel_up_ixz" value="0.00"/>
+        <xacro:property name="parallel_up_iyy" value="5.926399e-6"/>
+        <xacro:property name="parallel_up_iyz" value="2.4474e-8"/>
+        <xacro:property name="parallel_up_izz" value="5.898139e-6"/>
+        <xacro:property name="parallel_up_mass" value="0.027"/>
+        <xacro:property name="parallel_up_x" value="0.00"/>
+        <xacro:property name="parallel_up_y" value="0.0"/>
+        <xacro:property name="parallel_up_z" value="0.0"/>
+
+        <xacro:property name="parallel_down_ixx" value="3.16967e-7"/>
+        <xacro:property name="parallel_down_ixy" value="1.095e-10"/>
+        <xacro:property name="parallel_down_ixz" value="1.29e-10"/>
+        <xacro:property name="parallel_down_iyy" value="5.926399e-6"/>
+        <xacro:property name="parallel_down_iyz" value="2.4474e-8"/>
+        <xacro:property name="parallel_down_izz" value="5.898139e-6"/>
+        <xacro:property name="parallel_down_mass" value="0.027"/>
+        <xacro:property name="parallel_down_x" value="0.00"/>
+        <xacro:property name="parallel_down_y" value="0.0"/>
+        <xacro:property name="parallel_down_z" value="0.0"/>
+
+        <xacro:property name="move_base_ixx" value="4.91052e-7"/>
+        <xacro:property name="move_base_ixy" value="0.00"/>
+        <xacro:property name="move_base_ixz" value="0.00"/>
+        <xacro:property name="move_base_iyy" value="6.2663e-8"/>
+        <xacro:property name="move_base_iyz" value="3.4e-11"/>
+        <xacro:property name="move_base_izz" value="4.59974e-7"/>
+        <xacro:property name="move_base_mass" value="0.007"/>
+        <xacro:property name="move_base_x" value="0.00"/>
+        <xacro:property name="move_base_y" value="0.012536"/>
+        <xacro:property name="move_base_z" value="0.0"/>
+
+        <xacro:property name="base_link_ixx" value="3.5130112e-5"/>
+        <xacro:property name="base_link_ixy" value="0.00"/>
+        <xacro:property name="base_link_ixz" value="7.391e-19"/>
+        <xacro:property name="base_link_iyy" value="3.5130112e-5"/>
+        <xacro:property name="base_link_iyz" value="0.00"/>
+        <xacro:property name="base_link_izz" value="7.0108029e-5"/>
+        <xacro:property name="base_link_mass" value="0.101"/>
+        <xacro:property name="base_link_x" value="0.00"/>
+        <xacro:property name="base_link_y" value="0.00"/>
+        <xacro:property name="base_link_z" value="-0.0015"/>
+
+        <xacro:property name="move_EE_ixx" value="0.00"/>
+        <xacro:property name="move_EE_ixy" value="0.00"/>
+        <xacro:property name="move_EE_ixz" value="0.00"/>
+        <xacro:property name="move_EE_iyy" value="0.00"/>
+        <xacro:property name="move_EE_iyz" value="0.00"/>
+        <xacro:property name="move_EE_izz" value="0.00"/>
+        <xacro:property name="move_EE_mass" value="0.010"/>
+        <xacro:property name="move_EE_x" value="0.00"/>
+        <xacro:property name="move_EE_y" value="0.00"/>
+        <xacro:property name="move_EE_z" value="0.00"/>
+        <link name="world"></link>
+        <link name="base_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/base_link.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${base_link_mass}"/>
+                <origin xyz="${base_link_x} ${base_link_y} ${base_link_z}"/>
+                <inertia ixx="${base_link_ixx}" ixy="${base_link_ixy}" ixz="${base_link_ixz}"
+                         iyy="${base_link_iyy}" iyz="${base_link_iyz}"
+                         izz="${base_link_izz}"/>
+            </inertial>
+        </link>
+
+
+        <joint name="fix_base" type="fixed">
+            <parent link="world"/>
+            <child link="base_link"/>
+            <origin xyz="0. 0. 0." rpy="0 0 0"/>
+        </joint>
+
+        <link name="active_arm_1">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/active_arm.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/active_arm.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${active_arm_mass}"/>
+                <origin xyz="${active_arm_x} ${active_arm_y} ${active_arm_z}"/>
+                <inertia ixx="${active_arm_ixx}" ixy="${active_arm_ixy}" ixz="${active_arm_ixz}" iyy="${active_arm_iyy}"
+                         iyz="${active_arm_iyz}"
+                         izz="${active_arm_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="parallel_up_1">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_up.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_up.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${parallel_up_mass}"/>
+                <origin xyz="${parallel_up_x} ${parallel_up_y} ${parallel_up_z}"/>
+                <inertia ixx="${parallel_up_ixx}" ixy="${parallel_up_ixy}" ixz="${parallel_up_ixz}"
+                         iyy="${parallel_up_iyy}" iyz="${parallel_up_iyz}"
+                         izz="${parallel_up_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="passive_arm_1">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/passive_arm.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/passive_arm.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${passive_arm_mass}"/>
+                <origin xyz="${passive_arm_x} ${passive_arm_y} ${passive_arm_z}"/>
+                <inertia ixx="${passive_arm_ixx}" ixy="${passive_arm_ixy}" ixz="${passive_arm_ixz}"
+                         iyy="${passive_arm_iyy}" iyz="${passive_arm_iyz}"
+                         izz="${passive_arm_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="parallel_down_1">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_down.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_down.stl"
+                          scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${parallel_down_mass}"/>
+                <origin xyz="${parallel_down_x} ${parallel_down_y} ${parallel_down_z}"/>
+                <inertia ixx="${parallel_down_ixx}" ixy="${parallel_down_ixy}" ixz="${parallel_down_ixz}"
+                         iyy="${parallel_down_iyy}" iyz="${parallel_down_iyz}"
+                         izz="${parallel_down_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="move_base_1">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/move_base.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/move_base.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${move_base_mass}"/>
+                <origin xyz="${move_base_x} ${move_base_y} ${move_base_z}"/>
+                <inertia ixx="${move_base_ixx}" ixy="${move_base_ixy}" ixz="${move_base_ixz}" iyy="${move_base_iyy}"
+                         iyz="${move_base_iyz}"
+                         izz="${move_base_izz}"/>
+            </inertial>
+        </link>
+
+        <joint name="active_joint1" type="revolute">
+            <parent link="base_link"/>
+            <child link="active_arm_1"/>
+            <origin xyz="0 ${-active_joint_d} 0" rpy="0 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_up_a_joint1" type="revolute">
+            <parent link="active_arm_1"/>
+            <child link="parallel_up_1"/>
+            <origin xyz="0 -${r_f} 0" rpy="-${PI_3} 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_up_b_joint1" type="revolute">
+            <parent link="parallel_up_1"/>
+            <child link="passive_arm_1"/>
+            <origin xyz="0 0 0" rpy="0. 0 0"/>
+            <axis xyz="0 0 1"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_down_b_joint1" type="revolute">
+            <parent link="passive_arm_1"/>
+            <child link="parallel_down_1"/>
+            <origin xyz="0 ${r_e} 0" rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_down_a_joint1" type="revolute">
+            <parent link="parallel_down_1"/>
+            <child link="move_base_1"/>
+            <origin xyz="0 0 0" rpy="${PI_3} 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+
+        <link name="active_arm_2">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/active_arm.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/active_arm.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${active_arm_mass}"/>
+                <origin xyz="${active_arm_x} ${active_arm_y} ${active_arm_z}"/>
+                <inertia ixx="${active_arm_ixx}" ixy="${active_arm_ixy}" ixz="${active_arm_ixz}" iyy="${active_arm_iyy}"
+                         iyz="${active_arm_iyz}"
+                         izz="${active_arm_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="parallel_up_2">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_up.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_up.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${parallel_up_mass}"/>
+                <origin xyz="${parallel_up_x} ${parallel_up_y} ${parallel_up_z}"/>
+                <inertia ixx="${parallel_up_ixx}" ixy="${parallel_up_ixy}" ixz="${parallel_up_ixz}"
+                         iyy="${parallel_up_iyy}" iyz="${parallel_up_iyz}"
+                         izz="${parallel_up_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="passive_arm_2">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/passive_arm.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/passive_arm.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${passive_arm_mass}"/>
+                <origin xyz="${passive_arm_x} ${passive_arm_y} ${passive_arm_z}"/>
+                <inertia ixx="${passive_arm_ixx}" ixy="${passive_arm_ixy}" ixz="${passive_arm_ixz}"
+                         iyy="${passive_arm_iyy}" iyz="${passive_arm_iyz}"
+                         izz="${passive_arm_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="parallel_down_2">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_down.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_down.stl"
+                          scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${parallel_down_mass}"/>
+                <origin xyz="${parallel_down_x} ${parallel_down_y} ${parallel_down_z}"/>
+                <inertia ixx="${parallel_down_ixx}" ixy="${parallel_down_ixy}" ixz="${parallel_down_ixz}"
+                         iyy="${parallel_down_iyy}" iyz="${parallel_down_iyz}"
+                         izz="${parallel_down_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="move_base_2">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/move_base.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/move_base.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${move_base_mass}"/>
+                <origin xyz="${move_base_x} ${move_base_y} ${move_base_z}"/>
+                <inertia ixx="${move_base_ixx}" ixy="${move_base_ixy}" ixz="${move_base_ixz}" iyy="${move_base_iyy}"
+                         iyz="${move_base_iyz}"
+                         izz="${move_base_izz}"/>
+            </inertial>
+        </link>
+
+        <joint name="active_joint2" type="revolute">
+            <parent link="base_link"/>
+            <child link="active_arm_2"/>
+            <origin xyz="-${(active_joint_d)*cos(pi/6)} ${(active_joint_d)*sin(pi/6)} 0." rpy="0 0 -${v120_deg_2_rad}"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_up_a_joint2" type="revolute">
+            <parent link="active_arm_2"/>
+            <child link="parallel_up_2"/>
+            <origin xyz="0 -${r_f} 0" rpy="-${PI_3} 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_up_b_joint2" type="revolute">
+            <parent link="parallel_up_2"/>
+            <child link="passive_arm_2"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_down_b_joint2" type="revolute">
+            <parent link="passive_arm_2"/>
+            <child link="parallel_down_2"/>
+            <origin xyz="0 ${r_e} 0." rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_down_a_joint2" type="revolute">
+            <parent link="parallel_down_2"/>
+            <child link="move_base_2"/>
+            <origin xyz="0 0 0" rpy="${PI_3} 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <link name="active_arm_3">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/active_arm.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/active_arm.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${active_arm_mass}"/>
+                <origin xyz="${active_arm_x} ${active_arm_y} ${active_arm_z}"/>
+                <inertia ixx="${active_arm_ixx}" ixy="${active_arm_ixy}" ixz="${active_arm_ixz}" iyy="${active_arm_iyy}"
+                         iyz="${active_arm_iyz}"
+                         izz="${active_arm_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="parallel_up_3">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_up.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_up.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${parallel_up_mass}"/>
+                <origin xyz="${parallel_up_x} ${parallel_up_y} ${parallel_up_z}"/>
+                <inertia ixx="${parallel_up_ixx}" ixy="${parallel_up_ixy}" ixz="${parallel_up_ixz}"
+                         iyy="${parallel_up_iyy}" iyz="${parallel_up_iyz}"
+                         izz="${parallel_up_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="passive_arm_3">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/passive_arm.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/passive_arm.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${passive_arm_mass}"/>
+                <origin xyz="${passive_arm_x} ${passive_arm_y} ${passive_arm_z}"/>
+                <inertia ixx="${passive_arm_ixx}" ixy="${passive_arm_ixy}" ixz="${passive_arm_ixz}"
+                         iyy="${passive_arm_iyy}" iyz="${passive_arm_iyz}"
+                         izz="${passive_arm_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="parallel_down_3">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_down.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/parallel_down.stl"
+                          scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${parallel_down_mass}"/>
+                <origin xyz="${parallel_down_x} ${parallel_down_y} ${parallel_down_z}"/>
+                <inertia ixx="${parallel_down_ixx}" ixy="${parallel_down_ixy}" ixz="${parallel_down_ixz}"
+                         iyy="${parallel_down_iyy}" iyz="${parallel_down_iyz}"
+                         izz="${parallel_down_izz}"/>
+            </inertial>
+        </link>
+
+        <link name="move_base_3">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/move_base.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/move_base.stl" scale="0.0001 0.0001 0.0001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${move_base_mass}"/>
+                <origin xyz="${move_base_x} ${move_base_y} ${move_base_z}"/>
+                <inertia ixx="${move_base_ixx}" ixy="${move_base_ixy}" ixz="${move_base_ixz}" iyy="${move_base_iyy}"
+                         iyz="${move_base_iyz}"
+                         izz="${move_base_izz}"/>
+            </inertial>
+        </link>
+
+        <joint name="active_joint3" type="revolute">
+            <parent link="base_link"/>
+            <child link="active_arm_3"/>
+            <origin xyz="${(active_joint_d)*cos(pi/6)} ${(active_joint_d)*sin(pi/6)} 0." rpy="0 0 ${v120_deg_2_rad}"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_up_a_joint3" type="revolute">
+            <parent link="active_arm_3"/>
+            <child link="parallel_up_3"/>
+            <origin xyz="0 -${r_f} 0" rpy="-${PI_3} 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_up_b_joint3" type="revolute">
+            <parent link="parallel_up_3"/>
+            <child link="passive_arm_3"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_down_b_joint3" type="revolute">
+            <parent link="passive_arm_3"/>
+            <child link="parallel_down_3"/>
+            <origin xyz="0 ${r_e} 0." rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <joint name="parallel_down_a_joint3" type="revolute">
+            <parent link="parallel_down_3"/>
+            <child link="move_base_3"/>
+            <origin xyz="0 0 0" rpy="${PI_3} 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
+        </joint>
+
+        <link name="move_EE">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/move_EE.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://delta/meshes/move_EE.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${move_EE_mass}"/>
+                <origin xyz="${move_EE_x} ${move_EE_y} ${move_EE_z}"/>
+                <inertia ixx="${move_EE_ixx}" ixy="${move_EE_ixy}" ixz="${move_EE_ixz}" iyy="${move_EE_iyy}"
+                         iyz="${move_EE_iyz}"
+                         izz="${move_EE_izz}"/>
+            </inertial>
+        </link>
+        <joint name="con_move_base_EE_1" type="fixed">
+            <parent link="move_base_1"/>
+            <child link="move_EE"/>
+            <origin xyz="0. 0.03465 0." rpy="0 0 0"/>
+        </joint>
+
+        <gazebo>
+            <joint name="con_move_base_EE_2" type="fixed">
+                <parent>move_base_2</parent>
+                <child>move_EE</child>
+                <origin xyz="0. 0.03465 0." rpy="0 0 0"/>
+            </joint>
+            <joint name="con_move_base_EE_3" type="fixed">
+                <parent>move_base_3</parent>
+                <child>move_EE</child>
+                <origin xyz="0. 0.03465 0." rpy="0 0 0"/>
+            </joint>
+        </gazebo>
+        <link name="computer_EE">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <sphere radius="0.001"/>
+                </geometry>
+            </visual>
+            <inertial>
+                <mass value="${move_EE_mass}"/>
+                <origin xyz="${move_EE_x} ${move_EE_y} ${move_EE_z}"/>
+                <inertia ixx="${move_EE_ixx}" ixy="${move_EE_ixy}" ixz="${move_EE_ixz}" iyy="${move_EE_iyy}"
+                         iyz="${move_EE_iyz}"
+                         izz="${move_EE_izz}"/>
+            </inertial>
+        </link>
+        <link name="computer_x">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <sphere radius="0.001"/>
+                </geometry>
+            </visual>
+            <inertial>
+                <mass value="${move_EE_mass}"/>
+                <origin xyz="${move_EE_x} ${move_EE_y} ${move_EE_z}"/>
+                <inertia ixx="${move_EE_ixx}" ixy="${move_EE_ixy}" ixz="${move_EE_ixz}" iyy="${move_EE_iyy}"
+                         iyz="${move_EE_iyz}"
+                         izz="${move_EE_izz}"/>
+            </inertial>
+        </link>
+        <link name="computer_y">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <sphere radius="0.001"/>
+                </geometry>
+            </visual>
+            <inertial>
+                <mass value="${move_EE_mass}"/>
+                <origin xyz="${move_EE_x} ${move_EE_y} ${move_EE_z}"/>
+                <inertia ixx="${move_EE_ixx}" ixy="${move_EE_ixy}" ixz="${move_EE_ixz}" iyy="${move_EE_iyy}"
+                         iyz="${move_EE_iyz}"
+                         izz="${move_EE_izz}"/>
+            </inertial>
+        </link>
+        <joint name="computer_x_joint" type="prismatic">
+            <parent link="base_link"/>
+            <child link="computer_x"/>
+            <origin xyz="0. 0. 0." rpy="0 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-100" upper="100" velocity="10" effort="10"/>
+        </joint>
+        <joint name="computer_y_joint" type="prismatic">
+            <parent link="computer_x"/>
+            <child link="computer_y"/>
+            <origin xyz="0. 0. 0." rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+            <limit lower="-100" upper="100" velocity="10" effort="10"/>
+        </joint>
+        <joint name="computer_EE_joint" type="prismatic">
+            <parent link="computer_y"/>
+            <child link="computer_EE"/>
+            <origin xyz="0. 0. 0." rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <limit lower="-100" upper="100" velocity="10" effort="10"/>
+        </joint>
+    </xacro:macro>
+</robot>
