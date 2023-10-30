@@ -97,21 +97,21 @@
     <child link="link1"/>
     <origin rpy="0 0 0" xyz="0 0 0."/>
     <axis xyz="0 0 1"/>
-    <limit effort="3" lower="-3.14" upper="3.14" velocity="1"/>
+    <limit effort="3" lower="-3.14" upper="3.14" velocity="5"/>
   </joint>
   <joint name="joint2" type="revolute">
     <parent link="link1"/>
     <child link="link2"/>
     <origin rpy="0 0 0" xyz="0. 0. 0.032"/>
     <axis xyz="0 1 0"/>
-    <limit effort="3" lower="-3.14" upper="3.14" velocity="1"/>
+    <limit effort="3" lower="-3.14" upper="3.14" velocity="5"/>
   </joint>
   <joint name="joint3" type="revolute">
     <parent link="link2"/>
     <child link="link3"/>
     <origin rpy="0 0 0" xyz="-0.2 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit effort="3" lower="-3.14" upper="3.14" velocity="1"/>
+    <limit effort="3" lower="-3.14" upper="3.14" velocity="5"/>
   </joint>
   <transmission name="trans_joint1">
     <type>transmission_interface/SimpleTransmission</type>

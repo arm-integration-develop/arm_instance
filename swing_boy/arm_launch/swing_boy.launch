@@ -12,6 +12,7 @@
           args="load
           controllers/joint_state_controller
           controllers/arm_trajectory_controller
+          controllers/arm_hybrid_controller
     "/>
 <!--    Load move_group-->
     <arg name="load_robot_description" default="false"/>
