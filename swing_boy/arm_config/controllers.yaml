@@ -2,6 +2,21 @@ controllers:
   joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 100
+  arm_hybrid_controller:
+    type: arm_hybrid_controller/ArmHybridController
+    dynamics:
+      urdf_filename: /home/lsy/arm_control/src/arm_instance/swing_boy/urdf/swing_boy.urdf
+      send_tau: true
+      lp_cutoff_frequency: 1
+    joint1:
+      joint: "joint1"
+      pid: { p: 1, i: 0, d: 0., i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    joint2:
+      joint: "joint2"
+      pid: { p: 1, i: 0, d: 0., i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    joint3:
+      joint: "joint3"
+      pid: { p: 1, i: 0, d: 0., i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
   arm_trajectory_controller:
     type: effort_controllers/JointTrajectoryController
     joints:
@@ -10,7 +25,11 @@ controllers:
       - joint3
 #      - EE_joint
     gains:
+#      Use for test shake.
+#      joint1: { p: 0.0, i: 0., d: 0., i_clamp_max: 0., i_clamp_min: 0., antiwindup: true, publish_state: true }
+#      joint2: { p: 0, i: 0., d: 0., i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+#      joint3: { p: 0.0, i: 0., d: 0., i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint1: { p: 8.0, i: 0.1, d: 0.2, i_clamp_max: 0.5, i_clamp_min: -0.5, antiwindup: true, publish_state: true }
-      joint2: { p: 13, i: 1.5, d: 0.2, i_clamp_max: 2, i_clamp_min: -2, antiwindup: true, publish_state: true }
+      joint2: { p: 13, i: 2., d: 0.2, i_clamp_max: 2.5, i_clamp_min: -2.5, antiwindup: true, publish_state: true }
       joint3: { p: 8.0, i: 0., d: 0.2, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
 #      EE_joint: { p: 6.0, i: 0, d: 0.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
