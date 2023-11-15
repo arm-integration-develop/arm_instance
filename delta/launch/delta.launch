@@ -1,0 +1,17 @@
+<launch>
+<!--    Load urdf-->
+    <param name="robot_description" textfile="$(find delta)/urdf/delta.urdf" />
+<!--    Load hw-->
+    <rosparam file="$(find arm_hw)/config/actuator_coefficient.yaml" command="load" ns = "arm_hw"/>
+    <rosparam file="$(find delta)/config/delta_hw.yaml" command="load" />
+    <node name="arm_hw" pkg="arm_hw" type="arm_hw" respawn="false"
+          clear_params="true" />
+<!--    Load controllers-->
+    <rosparam file="$(find delta)/config/controllers.yaml" command="load"/>
+    <node name="controller_loader" pkg="controller_manager" type="controller_manager" output="screen"
+          args="load
+          controllers/joint_state_controller
+          controllers/delta_controller
+    "/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+</launch>

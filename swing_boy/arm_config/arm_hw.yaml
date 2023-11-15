@@ -9,7 +9,7 @@ arm_hw:
       bus: can0
       id: 0x001
       type: dm4310
-      act_offset: -0.7210155599999997
+      act_offset: 0.
       lp_cutoff_frequency: 50
     joint2_motor:
       bus: can0
@@ -21,7 +21,7 @@ arm_hw:
       bus: can0
       id: 0x003
       type: dm4310
-      act_offset: 1.7019750200000001
+      act_offset: 0.
       lp_cutoff_frequency: 50
 #    EE_joint_motor:
 #      bus: can0

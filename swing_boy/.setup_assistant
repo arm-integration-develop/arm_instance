@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: swing_boy
+    relative_path: urdf/swing_boy.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: /config/swing_boy.srdf
+  CONFIG:
+    author_name: 4yang
+    author_email: liusiyang.cn@gmail.com
+    generated_timestamp: 1617294211

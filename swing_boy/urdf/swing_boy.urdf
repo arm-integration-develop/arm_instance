@@ -87,7 +87,7 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.058973"/>
+      <mass value="0.108973"/>
       <origin xyz="0.101968 -0.000085 0.03048"/>
       <inertia ixx="6.4054865e-5" ixy="-5.11151e-7" ixz="-4.1292165e-5" iyy="3.979e-4" iyz="-1.53213e-7" izz="4.306e-4"/>
     </inertial>
@@ -97,21 +97,21 @@
     <child link="link1"/>
     <origin rpy="0 0 0" xyz="0 0 0."/>
     <axis xyz="0 0 1"/>
-    <limit effort="3" lower="-3.14" upper="3.14" velocity="5"/>
+    <limit effort="8" lower="-3.14" upper="3.14" velocity="5"/>
   </joint>
   <joint name="joint2" type="revolute">
     <parent link="link1"/>
     <child link="link2"/>
     <origin rpy="0 0 0" xyz="0. 0. 0.032"/>
     <axis xyz="0 1 0"/>
-    <limit effort="3" lower="-3.14" upper="3.14" velocity="5"/>
+    <limit effort="8" lower="-3.14" upper="3.14" velocity="5"/>
   </joint>
   <joint name="joint3" type="revolute">
     <parent link="link2"/>
     <child link="link3"/>
     <origin rpy="0 0 0" xyz="-0.2 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit effort="3" lower="-3.14" upper="3.14" velocity="5"/>
+    <limit effort="8" lower="-3.14" upper="3.14" velocity="5"/>
   </joint>
   <transmission name="trans_joint1">
     <type>transmission_interface/SimpleTransmission</type>
