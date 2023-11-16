@@ -5,9 +5,10 @@
         <transmission name="trans_active_joint1">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="active_joint1_motor">
-                <mechanicalReduction>1</mechanicalReduction>
+                <mechanicalReduction>-1</mechanicalReduction>
             </actuator>
             <joint name="active_joint1">
+                <offset>0.437579</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
@@ -34,7 +35,7 @@
 
         <transmission name="trans_parallel_down_a_joint1">
             <type>transmission_interface/SimpleTransmission</type>
-            <actuator name="parallel_up_down_joint1_motor">
+            <actuator name="parallel_down_a_joint1_motor">
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
             <joint name="parallel_down_a_joint1">
@@ -56,9 +57,10 @@
         <transmission name="trans_active_joint2">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="active_joint2_motor">
-                <mechanicalReduction>1</mechanicalReduction>
+                <mechanicalReduction>-1</mechanicalReduction>
             </actuator>
             <joint name="active_joint2">
+                <offset>0.437579</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
@@ -85,7 +87,7 @@
 
         <transmission name="trans_parallel_down_a_joint2">
             <type>transmission_interface/SimpleTransmission</type>
-            <actuator name="parallel_up_down_joint2_motor">
+            <actuator name="parallel_down_a_joint2_motor">
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
             <joint name="parallel_down_a_joint2">
@@ -106,9 +108,10 @@
         <transmission name="trans_active_joint3">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="active_joint3_motor">
-                <mechanicalReduction>1</mechanicalReduction>
+                <mechanicalReduction>-1</mechanicalReduction>
             </actuator>
             <joint name="active_joint3">
+                <offset>0.437579</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
@@ -135,7 +138,7 @@
 
         <transmission name="trans_parallel_down_a_joint3">
             <type>transmission_interface/SimpleTransmission</type>
-            <actuator name="parallel_up_down_joint3_motor">
+            <actuator name="parallel_down_a_joint3_motor">
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
             <joint name="parallel_down_a_joint3">

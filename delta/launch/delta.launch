@@ -12,6 +12,10 @@
           args="load
           controllers/joint_state_controller
           controllers/delta_controller
+          controllers/active1_calibration_controller
+          controllers/active2_calibration_controller
+          controllers/active3_calibration_controller
+
     "/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
 </launch>

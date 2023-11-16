@@ -2,16 +2,44 @@ controllers:
   joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 100
+
+  active1_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ active_joint1_motor ]
+    velocity:
+      joint: active_joint1
+      search_velocity: -1.57
+      vel_threshold: 1e-2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
+  active2_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ active_joint2_motor ]
+    velocity:
+      joint: active_joint2
+      search_velocity: -1.57
+      vel_threshold: 1e-2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
+  active3_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ active_joint3_motor ]
+    velocity:
+      joint: active_joint3
+      search_velocity: -1.57
+      vel_threshold: 1e-2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
   delta_controller:
     type: delta_controller/DeltaController
     active:
-      joint1:
+      active_joint1:
         joint: "active_joint1"
         pid: { p: 1, i: 0, d: 0.3, i_clamp_max: 10, i_clamp_min: -10, antiwindup: true, publish_state: true }
-      joint2:
+      active_joint2:
         joint: "active_joint2"
         pid: { p: 1, i: 0, d: 0.3, i_clamp_max: 10, i_clamp_min: -10, antiwindup: true, publish_state: true }
-      joint3:
+      active_joint3:
         joint: "active_joint3"
         pid: { p: 1, i: 0, d: 0.3, i_clamp_max: 10, i_clamp_min: -10, antiwindup: true, publish_state: true }
 #      joint1:

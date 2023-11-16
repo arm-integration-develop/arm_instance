@@ -99,6 +99,24 @@ arm_hw:
       type: rm_2006
       act_offset: 0.
       lp_cutoff_frequency: 100
+    computer_x_joint_motor:
+      bus: can1
+      id: 0x013
+      type: rm_2006
+      act_offset: 0.
+      lp_cutoff_frequency: 100
+    computer_y_joint_motor:
+      bus: can1
+      id: 0x014
+      type: rm_2006
+      act_offset: 0.
+      lp_cutoff_frequency: 100
+    computer_EE_joint_motor:
+      bus: can1
+      id: 0x015
+      type: rm_2006
+      act_offset: 0.
+      lp_cutoff_frequency: 100
 #    EE_joint_motor:
 #      bus: can0
 #      id: 0x004
