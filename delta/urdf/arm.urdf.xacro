@@ -2,8 +2,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm">
 
     <xacro:macro name="arm">
-        <xacro:property name="k_f" value="0.141067"/>
-        <xacro:property name="k_e" value="0.065287"/>
+        <xacro:property name="f" value="0.141067"/>
+        <xacro:property name="e" value="0.119853"/>
         <xacro:property name="r_f" value="0.09"/>
         <xacro:property name="r_e" value="0.192"/>
         <xacro:property name="active_joint_d" value="0.040721"/>
@@ -387,7 +387,7 @@
         <joint name="active_joint2" type="revolute">
             <parent link="base_link"/>
             <child link="active_arm_2"/>
-            <origin xyz="-${(active_joint_d)*cos(pi/6)} ${(active_joint_d)*sin(pi/6)} 0." rpy="0 0 ${v120_deg_2_rad}"/>
+            <origin xyz="${(active_joint_d)*cos(pi/6)} ${(active_joint_d)*sin(pi/6)} 0." rpy="0 0 ${v120_deg_2_rad}"/>
             <axis xyz="1 0 0"/>
             <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
         </joint>
@@ -538,7 +538,7 @@
         <joint name="active_joint3" type="revolute">
             <parent link="base_link"/>
             <child link="active_arm_3"/>
-            <origin xyz="${(active_joint_d)*cos(pi/6)} ${(active_joint_d)*sin(pi/6)} 0." rpy="0 0 -${v120_deg_2_rad}"/>
+            <origin xyz="-${(active_joint_d)*cos(pi/6)} ${(active_joint_d)*sin(pi/6)} 0." rpy="0 0 -${v120_deg_2_rad}"/>
             <axis xyz="1 0 0"/>
             <limit lower="-3.14" upper="3.14" velocity="1" effort="1"/>
         </joint>

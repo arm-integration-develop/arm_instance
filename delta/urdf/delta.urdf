@@ -135,7 +135,7 @@
     <child link="active_arm_1"/>
     <origin rpy="0 0 0" xyz="0 -0.040721 0"/>
     <axis xyz="1 0 0"/>
-    <limit effort="1" lower="-3.14" upper="3.14" velocity="30"/>
+    <limit effort="1" lower="-3.14" upper="3.14" velocity="1"/>
   </joint>
   <joint name="parallel_up_a_joint1" type="revolute">
     <parent link="active_arm_1"/>
@@ -263,9 +263,9 @@
   <joint name="active_joint2" type="revolute">
     <parent link="base_link"/>
     <child link="active_arm_2"/>
-    <origin rpy="0 0 -2.09439504" xyz="-0.03526542046750613 0.020360499999999997 0."/>
+    <origin rpy="0 0 2.09439504" xyz="0.03526542046750613 0.020360499999999997 0."/>
     <axis xyz="1 0 0"/>
-    <limit effort="1" lower="-3.14" upper="3.14" velocity="30"/>
+    <limit effort="1" lower="-3.14" upper="3.14" velocity="1"/>
   </joint>
   <joint name="parallel_up_a_joint2" type="revolute">
     <parent link="active_arm_2"/>
@@ -393,9 +393,9 @@
   <joint name="active_joint3" type="revolute">
     <parent link="base_link"/>
     <child link="active_arm_3"/>
-    <origin rpy="0 0 2.09439504" xyz="0.03526542046750613 0.020360499999999997 0."/>
+    <origin rpy="0 0 -2.09439504" xyz="-0.03526542046750613 0.020360499999999997 0."/>
     <axis xyz="1 0 0"/>
-    <limit effort="1" lower="-3.14" upper="3.14" velocity="30"/>
+    <limit effort="1" lower="-3.14" upper="3.14" velocity="1"/>
   </joint>
   <joint name="parallel_up_a_joint3" type="revolute">
     <parent link="active_arm_3"/>

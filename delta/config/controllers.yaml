@@ -32,16 +32,27 @@ controllers:
 
   delta_controller:
     type: delta_controller/DeltaController
+    RC:
+      RC_start_value: 0.01
+      RC_topic: /turtle1/cmd_vel
+      coefficient: 100
+#      RC_topic: /servo_server/delta_twist_cmds
+    use_gazebo: false
+    param:
+      f: 0.134231
+      e: 0.120312
+      r_f: 0.092
+      r_e: 0.192
     active:
       active_joint1:
         joint: "active_joint1"
-        pid: { p: 5, i: 0.1, d: 0.4, i_clamp_max: 10, i_clamp_min: -10, antiwindup: true, publish_state: true }
+        pid: { p: 1, i: 0.1, d: 0.03, i_clamp_max: 2, i_clamp_min: -2, antiwindup: true, publish_state: true }
       active_joint2:
         joint: "active_joint2"
-        pid: { p: 5, i: 0.1, d: 0.4, i_clamp_max: 10, i_clamp_min: -10, antiwindup: true, publish_state: true }
+        pid: { p: 1, i: 0.1, d: 0.03, i_clamp_max: 2, i_clamp_min: -2, antiwindup: true, publish_state: true }
       active_joint3:
         joint: "active_joint3"
-        pid: { p: 5, i: 0.1, d: 0.4, i_clamp_max: 10, i_clamp_min: -10, antiwindup: true, publish_state: true }
+        pid: { p: 1, i: 0.1, d: 0.03, i_clamp_max: 2, i_clamp_min: -2, antiwindup: true, publish_state: true }
 #      joint1:
 #        joint: "active_joint1"
 #        pid: { p: 100.0, i: 5, d: 0.75, i_clamp_max: 10, i_clamp_min: -10, antiwindup: true, publish_state: true }
@@ -90,9 +101,3 @@ controllers:
       parallel_down_a_joint3:
         joint: "parallel_down_a_joint3"
         pid: { p: 1., i: 0, d: 0., i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-    use_gazebo: false
-    param:
-      f: 0.141062
-      e: 0.119853
-      r_f: 0.09
-      r_e: 0.192

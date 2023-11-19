@@ -8,7 +8,7 @@
                 <mechanicalReduction>-1</mechanicalReduction>
             </actuator>
             <joint name="active_joint1">
-                <offset>0.437579</offset>
+                <offset>-0.437579</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
@@ -60,7 +60,7 @@
                 <mechanicalReduction>-1</mechanicalReduction>
             </actuator>
             <joint name="active_joint2">
-                <offset>0.437579</offset>
+                <offset>-0.437579</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
@@ -111,7 +111,7 @@
                 <mechanicalReduction>-1</mechanicalReduction>
             </actuator>
             <joint name="active_joint3">
-                <offset>0.437579</offset>
+                <offset>-0.437579</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
