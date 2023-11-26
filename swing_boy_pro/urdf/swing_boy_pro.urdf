@@ -25,9 +25,9 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.0"/>
-      <origin xyz="0.0 0.0 0.0"/>
-      <inertia ixx="0" ixy="0.0" ixz="0.0" iyy="0" iyz="0" izz="0"/>
+      <mass value="6.745707"/>
+      <origin xyz="1e-05 6e-06 0.012902"/>
+      <inertia ixx="0.004965" ixy="-4.88379e-07" ixz="-2.414355e-06" iyy="0.003883" iyz="6.02506e-07" izz="0.008305"/>
     </inertial>
   </link>
   <joint name="fixed_base" type="fixed">
@@ -49,85 +49,85 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.0"/>
-      <origin xyz="0.0 0.0 0.0"/>
-      <inertia ixx="0" ixy="0.0" ixz="0.0" iyy="0" iyz="0" izz="0"/>
+      <mass value="1.104255"/>
+      <origin xyz="-1.387e-08 -0.00539 0.034696"/>
+      <inertia ixx="0.0005716" ixy="3.45e-10" ixz="-2.1e-10" iyy="0.0004949" iyz="1.2124841e-05" izz="0.0005383"/>
     </inertial>
   </link>
   <link name="link2">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://swing_boy_pro/meshes/link2.stl" scale="1 1 1"/>
+        <mesh filename="package://swing_boy_pro/meshes/link2.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0. 0."/>
       <geometry>
-        <mesh filename="package://swing_boy_pro/meshes/link2.stl" scale="1 1 1"/>
+        <mesh filename="package://swing_boy_pro/meshes/link2.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.0"/>
-      <origin xyz="0.0 0.0 0.0"/>
-      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+      <mass value="1.160947"/>
+      <origin xyz="-0.20817 -0.005107 2e-06"/>
+      <inertia ixx="0.0006399" ixy="-7.1576468e-08" ixz="-1.87622e-07" iyy="0.002117" iyz="-3.764e-09" izz="0.002288"/>
     </inertial>
   </link>
   <link name="link3">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://swing_boy_pro/meshes/link3.stl" scale="1 1 1"/>
+        <mesh filename="package://swing_boy_pro/meshes/link3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://swing_boy_pro/meshes/link3.stl" scale="1 1 1"/>
+        <mesh filename="package://swing_boy_pro/meshes/link3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.0"/>
-      <origin xyz="0.0 0.0 0.0"/>
-      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+      <mass value="1.039804"/>
+      <origin xyz="0.203481 -0.004344 0.056027"/>
+      <inertia ixx="0.0005525" ixy="5.4862049e-05" ixz="-0.0001962" iyy="0.002964" iyz="6.479863e-06" izz="0.003004"/>
     </inertial>
   </link>
   <link name="link4">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://swing_boy_pro/meshes/link4.stl" scale="1 1 1"/>
+        <mesh filename="package://swing_boy_pro/meshes/link4.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://swing_boy_pro/meshes/link4.stl" scale="1 1 1"/>
+        <mesh filename="package://swing_boy_pro/meshes/link4.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.0"/>
-      <origin xyz="0.0 0.0 0.0"/>
-      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+      <mass value="1.039804"/>
+      <origin xyz="0.203481 -0.004344 0.056027"/>
+      <inertia ixx="0.0005525" ixy="5.4862049e-05" ixz="-0.0001962" iyy="0.002964" iyz="6.479863e-06" izz="0.003004"/>
     </inertial>
   </link>
   <link name="link5">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://swing_boy_pro/meshes/link5.stl" scale="1 1 1"/>
+        <mesh filename="package://swing_boy_pro/meshes/link5.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0. 0."/>
       <geometry>
-        <mesh filename="package://swing_boy_pro/meshes/link5.stl" scale="1 1 1"/>
+        <mesh filename="package://swing_boy_pro/meshes/link5.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.0"/>
-      <origin xyz="0.0 0.0 0.0"/>
-      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+      <mass value="0.863936"/>
+      <origin xyz="0.001398 -4.86e-07 -0.04159"/>
+      <inertia ixx="0.0003602" ixy="2.15715e-07" ixz="1.365425e-06" iyy="0.0003218" iyz="-2.37584e-07" izz="0.0003117"/>
     </inertial>
   </link>
   <link name="link6">
@@ -144,9 +144,9 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.0"/>
-      <origin xyz="0.0 0.0 0.0"/>
-      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+      <mass value="0.030595"/>
+      <origin xyz="0.015 1.83e-12 0.0"/>
+      <inertia ixx="4.684887e-06" ixy="0.0" ixz="0.0" iyy="4.637082e-06" iyz="0.0" izz="4.637083e-06"/>
     </inertial>
   </link>
   <joint name="joint1" type="revolute">
@@ -154,42 +154,42 @@
     <child link="link1"/>
     <origin rpy="0 0 0" xyz="0.0 0.0 0.08125"/>
     <axis xyz="0 0 1"/>
-    <limit effort="8" lower="-3.14" upper="3.14" velocity="1"/>
+    <limit effort="15" lower="-3.14" upper="3.14" velocity="10"/>
   </joint>
   <joint name="joint2" type="revolute">
     <parent link="link1"/>
     <child link="link2"/>
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0345"/>
     <axis xyz="0 1 0"/>
-    <limit effort="8" lower="-3.14" upper="3.14" velocity="1"/>
+    <limit effort="15" lower="-3.14" upper="3.14" velocity="10"/>
   </joint>
   <joint name="joint3" type="revolute">
     <parent link="link2"/>
     <child link="link3"/>
     <origin rpy="0 0 0" xyz="-0.22 0.0 0.0"/>
     <axis xyz="0 1 0"/>
-    <limit effort="8" lower="-3.14" upper="3.14" velocity="1"/>
+    <limit effort="15" lower="-3.14" upper="3.14" velocity="10"/>
   </joint>
   <joint name="joint4" type="revolute">
     <parent link="link3"/>
     <child link="link4"/>
     <origin rpy="0 0 0" xyz="0.22 0.0 0.0565"/>
     <axis xyz="0 1 0"/>
-    <limit effort="8" lower="-3.14" upper="3.14" velocity="1"/>
+    <limit effort="8" lower="-3.14" upper="3.14" velocity="10"/>
   </joint>
   <joint name="joint5" type="revolute">
     <parent link="link4"/>
     <child link="link5"/>
-    <origin rpy="0 0 0" xyz="0.07 0.038 0.0"/>
+    <origin rpy="0 0 0" xyz="0.07 0 0.038"/>
     <axis xyz="0 0 1"/>
-    <limit effort="8" lower="-3.14" upper="3.14" velocity="1"/>
+    <limit effort="8" lower="-3.14" upper="3.14" velocity="10"/>
   </joint>
   <joint name="joint6" type="revolute">
     <parent link="link5"/>
     <child link="link6"/>
     <origin rpy="0 0 0" xyz="0.0265 0.0 -0.038"/>
     <axis xyz="1 0 0"/>
-    <limit effort="8" lower="-3.14" upper="3.14" velocity="1"/>
+    <limit effort="8" lower="-3.14" upper="3.14" velocity="10"/>
   </joint>
   <link name="EE"/>
   <joint name="EE_fixed" type="fixed">

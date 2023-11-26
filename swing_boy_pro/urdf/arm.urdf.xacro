@@ -5,82 +5,84 @@
         <xacro:property name="arm_name" value="swing_boy_pro"/>
         <xacro:property name="EE_connect_link" value="link6"/>
 
-        <xacro:property name="base_link_ixx" value="0"/>
-        <xacro:property name="base_link_ixy" value="0."/>
-        <xacro:property name="base_link_ixz" value="0."/>
-        <xacro:property name="base_link_iyy" value="0"/>
-        <xacro:property name="base_link_iyz" value="0"/>
-        <xacro:property name="base_link_izz" value="0"/>
-        <xacro:property name="base_link_mass" value="0."/>
-        <xacro:property name="base_link_x" value="0."/>
-        <xacro:property name="base_link_y" value="0."/>
-        <xacro:property name="base_link_z" value="0."/>
+        <xacro:property name="base_link_ixx" value="4.965e-3"/>
+        <xacro:property name="base_link_ixy" value="-4.88379e-7"/>
+        <xacro:property name="base_link_ixz" value="-2.414355e-6"/>
+        <xacro:property name="base_link_iyy" value="3.883e-3"/>
+        <xacro:property name="base_link_iyz" value="6.02506e-7"/>
+        <xacro:property name="base_link_izz" value="8.305e-3"/>
+        <xacro:property name="base_link_mass" value="6.745707"/>
+        <xacro:property name="base_link_x" value="1e-5"/>
+        <xacro:property name="base_link_y" value="6e-6"/>
+        <xacro:property name="base_link_z" value="1.2902e-2"/>
 
-        <xacro:property name="link1_ixx" value="0"/>
-        <xacro:property name="link1_ixy" value="0."/>
-        <xacro:property name="link1_ixz" value="0."/>
-        <xacro:property name="link1_iyy" value="0"/>
-        <xacro:property name="link1_iyz" value="0"/>
-        <xacro:property name="link1_izz" value="0"/>
-        <xacro:property name="link1_mass" value="0."/>
-        <xacro:property name="link1_x" value="0."/>
-        <xacro:property name="link1_y" value="0."/>
-        <xacro:property name="link1_z" value="0."/>
+        <xacro:property name="link1_ixx" value="5.716e-4"/>
+        <xacro:property name="link1_ixy" value="0.345e-9"/>
+        <xacro:property name="link1_ixz" value="-2.1e-10"/>
+        <xacro:property name="link1_iyy" value="4.949e-4"/>
+        <xacro:property name="link1_iyz" value="1.2124841e-5"/>
+        <xacro:property name="link1_izz" value="5.383e-4"/>
+        <xacro:property name="link1_mass" value="1.104255"/>
+        <xacro:property name="link1_x" value="-1.387e-8"/>
+        <xacro:property name="link1_y" value="-5.39e-3"/>
+        <xacro:property name="link1_z" value="3.4696e-2"/>
 
-        <xacro:property name="link2_ixx" value="0."/>
-        <xacro:property name="link2_ixy" value="0."/>
-        <xacro:property name="link2_ixz" value="0."/>
-        <xacro:property name="link2_iyy" value="0."/>
-        <xacro:property name="link2_iyz" value="0."/>
-        <xacro:property name="link2_izz" value="0."/>
-        <xacro:property name="link2_mass" value="0."/>
-        <xacro:property name="link2_x" value="0."/>
-        <xacro:property name="link2_y" value="0."/>
-        <xacro:property name="link2_z" value="0."/>
+        <xacro:property name="link2_ixx" value="6.399e-4"/>
+        <xacro:property name="link2_ixy" value="-7.1576468e-8"/>
+        <xacro:property name="link2_ixz" value="-1.87622e-7"/>
+        <xacro:property name="link2_iyy" value="2.117e-3"/>
+        <xacro:property name="link2_iyz" value="-3.764e-9"/>
+        <xacro:property name="link2_izz" value="2.288e-3"/>
+        <xacro:property name="link2_mass" value="1.160947"/>
+        <xacro:property name="link2_x" value="-0.20817"/>
+        <xacro:property name="link2_y" value="-0.005107"/>
+        <xacro:property name="link2_z" value="2e-6"/>
 
-        <xacro:property name="link3_ixx" value="0."/>
-        <xacro:property name="link3_ixy" value="0."/>
-        <xacro:property name="link3_ixz" value="0."/>
-        <xacro:property name="link3_iyy" value="0."/>
-        <xacro:property name="link3_iyz" value="0."/>
-        <xacro:property name="link3_izz" value="0."/>
-        <xacro:property name="link3_mass" value="0."/>
-        <xacro:property name="link3_x" value="0."/>
-        <xacro:property name="link3_y" value="0."/>
-        <xacro:property name="link3_z" value="0."/>
+        <xacro:property name="link3_ixx" value="5.525e-4"/>
+        <xacro:property name="link3_ixy" value="5.4862049e-5"/>
+        <xacro:property name="link3_ixz" value="-1.962e-4"/>
+        <xacro:property name="link3_iyy" value="2.964e-3"/>
+        <xacro:property name="link3_iyz" value="6.479863e-6"/>
+        <xacro:property name="link3_izz" value="3.004e-3"/>
+        <xacro:property name="link3_mass" value="1.039804"/>
+        <xacro:property name="link3_x" value="0.203481"/>
+        <xacro:property name="link3_y" value="-4.344e-3"/>
+        <xacro:property name="link3_z" value="5.6027e-2"/>
 
-        <xacro:property name="link4_ixx" value="0."/>
-        <xacro:property name="link4_ixy" value="0."/>
-        <xacro:property name="link4_ixz" value="0."/>
-        <xacro:property name="link4_iyy" value="0."/>
-        <xacro:property name="link4_iyz" value="0."/>
-        <xacro:property name="link4_izz" value="0."/>
-        <xacro:property name="link4_mass" value="0."/>
-        <xacro:property name="link4_x" value="0."/>
-        <xacro:property name="link4_y" value="0."/>
-        <xacro:property name="link4_z" value="0."/>
+        <xacro:property name="link4_ixx" value="5.525e-4"/>
+        <xacro:property name="link4_ixy" value="5.4862049e-5"/>
+        <xacro:property name="link4_ixz" value="-1.962e-4"/>
+        <xacro:property name="link4_iyy" value="2.964e-3"/>
+        <xacro:property name="link4_iyz" value="6.479863e-6"/>
+        <xacro:property name="link4_izz" value="3.004e-3"/>
+        <xacro:property name="link4_mass" value="1.039804"/>
+        <xacro:property name="link4_x" value="0.203481"/>
+        <xacro:property name="link4_y" value="-4.344e-3"/>
+        <xacro:property name="link4_z" value="5.6027e-2"/>
 
-        <xacro:property name="link5_ixx" value="0."/>
-        <xacro:property name="link5_ixy" value="0."/>
-        <xacro:property name="link5_ixz" value="0."/>
-        <xacro:property name="link5_iyy" value="0."/>
-        <xacro:property name="link5_iyz" value="0."/>
-        <xacro:property name="link5_izz" value="0."/>
-        <xacro:property name="link5_mass" value="0."/>
-        <xacro:property name="link5_x" value="0."/>
-        <xacro:property name="link5_y" value="0."/>
-        <xacro:property name="link5_z" value="0."/>
+        <xacro:property name="link5_ixx" value="3.602e-4"/>
+        <xacro:property name="link5_ixy" value="2.15715e-7"/>
+        <xacro:property name="link5_ixz" value="1.365425e-6"/>
+        <xacro:property name="link5_iyy" value="3.218e-4"/>
+        <xacro:property name="link5_iyz" value="-2.37584e-7"/>
+        <xacro:property name="link5_izz" value="3.117e-4"/>
+        <xacro:property name="link5_mass" value="0.863936"/>
+        <xacro:property name="link5_x" value="1.398e-3"/>
+        <xacro:property name="link5_y" value="-4.86e-7"/>
+        <xacro:property name="link5_z" value="-4.159e-2"/>
 
-        <xacro:property name="link6_ixx" value="0."/>
-        <xacro:property name="link6_ixy" value="0."/>
-        <xacro:property name="link6_ixz" value="0."/>
-        <xacro:property name="link6_iyy" value="0."/>
-        <xacro:property name="link6_iyz" value="0."/>
-        <xacro:property name="link6_izz" value="0."/>
-        <xacro:property name="link6_mass" value="0."/>
-        <xacro:property name="link6_x" value="0."/>
-        <xacro:property name="link6_y" value="0."/>
-        <xacro:property name="link6_z" value="0."/>
+        <xacro:property name="link6_ixx" value="4.684887e-6"/>
+        <xacro:property name="link6_ixy" value="0.00"/>
+        <xacro:property name="link6_ixz" value="0.00"/>
+        <xacro:property name="link6_iyy" value="4.637082e-6"/>
+        <xacro:property name="link6_iyz" value="0.00"/>
+        <xacro:property name="link6_izz" value="4.637083e-6"/>
+        <xacro:property name="link6_mass" value="3.0595e-2"/>
+        <xacro:property name="link6_x" value="1.5e-2"/>
+        <xacro:property name="link6_y" value="1.83e-12"/>
+        <xacro:property name="link6_z" value="0.00"/>
+
+
 
         <xacro:property name="dm4310_velocity" value="1"/>
         <xacro:property name="dm4310_effort" value="8"/>
@@ -92,39 +94,39 @@
         <xacro:property name="joint1_offset_z" value="0.08125"/>
         <xacro:property name="joint1_lower" value="-3.14"/>
         <xacro:property name="joint1_upper" value="3.14"/>
-        <xacro:property name="joint1_velocity" value="1"/>
-        <xacro:property name="joint1_effort" value="8"/>
+        <xacro:property name="joint1_velocity" value="10"/>
+        <xacro:property name="joint1_effort" value="15"/>
 
         <xacro:property name="joint2_offset_x" value="0."/>
         <xacro:property name="joint2_offset_y" value="0."/>
         <xacro:property name="joint2_offset_z" value="0.0345"/>
         <xacro:property name="joint2_lower" value="-3.14"/>
         <xacro:property name="joint2_upper" value="3.14"/>
-        <xacro:property name="joint2_velocity" value="1"/>
-        <xacro:property name="joint2_effort" value="8"/>
+        <xacro:property name="joint2_velocity" value="10"/>
+        <xacro:property name="joint2_effort" value="30"/>
 
         <xacro:property name="joint3_offset_x" value="-0.220"/>
         <xacro:property name="joint3_offset_y" value="0."/>
         <xacro:property name="joint3_offset_z" value="0."/>
         <xacro:property name="joint3_lower" value="-3.14"/>
         <xacro:property name="joint3_upper" value="3.14"/>
-        <xacro:property name="joint3_velocity" value="1"/>
-        <xacro:property name="joint3_effort" value="8"/>
+        <xacro:property name="joint3_velocity" value="10"/>
+        <xacro:property name="joint3_effort" value="15"/>
 
         <xacro:property name="joint4_offset_x" value="0.220"/>
         <xacro:property name="joint4_offset_y" value="0."/>
         <xacro:property name="joint4_offset_z" value="0.0565"/>
         <xacro:property name="joint4_lower" value="-3.14"/>
         <xacro:property name="joint4_upper" value="3.14"/>
-        <xacro:property name="joint4_velocity" value="1"/>
+        <xacro:property name="joint4_velocity" value="10"/>
         <xacro:property name="joint4_effort" value="8"/>
 
         <xacro:property name="joint5_offset_x" value="0.07"/>
-        <xacro:property name="joint5_offset_y" value="0.038"/>
-        <xacro:property name="joint5_offset_z" value="0."/>
+        <xacro:property name="joint5_offset_y" value="0"/>
+        <xacro:property name="joint5_offset_z" value="0.038"/>
         <xacro:property name="joint5_lower" value="-3.14"/>
         <xacro:property name="joint5_upper" value="3.14"/>
-        <xacro:property name="joint5_velocity" value="1"/>
+        <xacro:property name="joint5_velocity" value="10"/>
         <xacro:property name="joint5_effort" value="8"/>
 
         <xacro:property name="joint6_offset_x" value="0.0265"/>
@@ -132,7 +134,7 @@
         <xacro:property name="joint6_offset_z" value="-0.038"/>
         <xacro:property name="joint6_lower" value="-3.14"/>
         <xacro:property name="joint6_upper" value="3.14"/>
-        <xacro:property name="joint6_velocity" value="1"/>
+        <xacro:property name="joint6_velocity" value="10"/>
         <xacro:property name="joint6_effort" value="8"/>
         <link name="base_link">
             <visual>
