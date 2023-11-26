@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="swing_boy_pro">
+    <xacro:arg name="use_simulation" default="true"/>
+    <xacro:if value="$(arg use_simulation)">
+        <gazebo>
+            <plugin name="arm_ros_control" filename="libarm_robot_hw_sim.so">
+                <robotNamespace>/</robotNamespace>
+                <robotSimType>arm_gazebo/ArmRobotHWSim</robotSimType>
+            </plugin>
+        </gazebo>
+    </xacro:if>
+
+    <xacro:include filename="$(find swing_boy_pro)/urdf/arm.urdf.xacro"/>
+    <xacro:arm/>
+    <xacro:include filename="$(find swing_boy_pro)/urdf/arm.transmission.xacro"/>
+    <xacro:arm_transmission/>
+</robot>

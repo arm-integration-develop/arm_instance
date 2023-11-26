@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm">
+    <xacro:macro name="arm">
+        <link name="world"></link>
+        <xacro:property name="arm_name" value="swing_boy_pro"/>
+        <xacro:property name="EE_connect_link" value="link6"/>
+
+        <xacro:property name="base_link_ixx" value="0"/>
+        <xacro:property name="base_link_ixy" value="0."/>
+        <xacro:property name="base_link_ixz" value="0."/>
+        <xacro:property name="base_link_iyy" value="0"/>
+        <xacro:property name="base_link_iyz" value="0"/>
+        <xacro:property name="base_link_izz" value="0"/>
+        <xacro:property name="base_link_mass" value="0."/>
+        <xacro:property name="base_link_x" value="0."/>
+        <xacro:property name="base_link_y" value="0."/>
+        <xacro:property name="base_link_z" value="0."/>
+
+        <xacro:property name="link1_ixx" value="0"/>
+        <xacro:property name="link1_ixy" value="0."/>
+        <xacro:property name="link1_ixz" value="0."/>
+        <xacro:property name="link1_iyy" value="0"/>
+        <xacro:property name="link1_iyz" value="0"/>
+        <xacro:property name="link1_izz" value="0"/>
+        <xacro:property name="link1_mass" value="0."/>
+        <xacro:property name="link1_x" value="0."/>
+        <xacro:property name="link1_y" value="0."/>
+        <xacro:property name="link1_z" value="0."/>
+
+        <xacro:property name="link2_ixx" value="0."/>
+        <xacro:property name="link2_ixy" value="0."/>
+        <xacro:property name="link2_ixz" value="0."/>
+        <xacro:property name="link2_iyy" value="0."/>
+        <xacro:property name="link2_iyz" value="0."/>
+        <xacro:property name="link2_izz" value="0."/>
+        <xacro:property name="link2_mass" value="0."/>
+        <xacro:property name="link2_x" value="0."/>
+        <xacro:property name="link2_y" value="0."/>
+        <xacro:property name="link2_z" value="0."/>
+
+        <xacro:property name="link3_ixx" value="0."/>
+        <xacro:property name="link3_ixy" value="0."/>
+        <xacro:property name="link3_ixz" value="0."/>
+        <xacro:property name="link3_iyy" value="0."/>
+        <xacro:property name="link3_iyz" value="0."/>
+        <xacro:property name="link3_izz" value="0."/>
+        <xacro:property name="link3_mass" value="0."/>
+        <xacro:property name="link3_x" value="0."/>
+        <xacro:property name="link3_y" value="0."/>
+        <xacro:property name="link3_z" value="0."/>
+
+        <xacro:property name="link4_ixx" value="0."/>
+        <xacro:property name="link4_ixy" value="0."/>
+        <xacro:property name="link4_ixz" value="0."/>
+        <xacro:property name="link4_iyy" value="0."/>
+        <xacro:property name="link4_iyz" value="0."/>
+        <xacro:property name="link4_izz" value="0."/>
+        <xacro:property name="link4_mass" value="0."/>
+        <xacro:property name="link4_x" value="0."/>
+        <xacro:property name="link4_y" value="0."/>
+        <xacro:property name="link4_z" value="0."/>
+
+        <xacro:property name="link5_ixx" value="0."/>
+        <xacro:property name="link5_ixy" value="0."/>
+        <xacro:property name="link5_ixz" value="0."/>
+        <xacro:property name="link5_iyy" value="0."/>
+        <xacro:property name="link5_iyz" value="0."/>
+        <xacro:property name="link5_izz" value="0."/>
+        <xacro:property name="link5_mass" value="0."/>
+        <xacro:property name="link5_x" value="0."/>
+        <xacro:property name="link5_y" value="0."/>
+        <xacro:property name="link5_z" value="0."/>
+
+        <xacro:property name="link6_ixx" value="0."/>
+        <xacro:property name="link6_ixy" value="0."/>
+        <xacro:property name="link6_ixz" value="0."/>
+        <xacro:property name="link6_iyy" value="0."/>
+        <xacro:property name="link6_iyz" value="0."/>
+        <xacro:property name="link6_izz" value="0."/>
+        <xacro:property name="link6_mass" value="0."/>
+        <xacro:property name="link6_x" value="0."/>
+        <xacro:property name="link6_y" value="0."/>
+        <xacro:property name="link6_z" value="0."/>
+
+        <xacro:property name="dm4310_velocity" value="1"/>
+        <xacro:property name="dm4310_effort" value="8"/>
+        <xacro:property name="dm4340_velocity" value="1"/>
+        <xacro:property name="dm4340_effort" value="8"/>
+
+        <xacro:property name="joint1_offset_x" value="0."/>
+        <xacro:property name="joint1_offset_y" value="0."/>
+        <xacro:property name="joint1_offset_z" value="0.08125"/>
+        <xacro:property name="joint1_lower" value="-3.14"/>
+        <xacro:property name="joint1_upper" value="3.14"/>
+        <xacro:property name="joint1_velocity" value="1"/>
+        <xacro:property name="joint1_effort" value="8"/>
+
+        <xacro:property name="joint2_offset_x" value="0."/>
+        <xacro:property name="joint2_offset_y" value="0."/>
+        <xacro:property name="joint2_offset_z" value="0.0345"/>
+        <xacro:property name="joint2_lower" value="-3.14"/>
+        <xacro:property name="joint2_upper" value="3.14"/>
+        <xacro:property name="joint2_velocity" value="1"/>
+        <xacro:property name="joint2_effort" value="8"/>
+
+        <xacro:property name="joint3_offset_x" value="-0.220"/>
+        <xacro:property name="joint3_offset_y" value="0."/>
+        <xacro:property name="joint3_offset_z" value="0."/>
+        <xacro:property name="joint3_lower" value="-3.14"/>
+        <xacro:property name="joint3_upper" value="3.14"/>
+        <xacro:property name="joint3_velocity" value="1"/>
+        <xacro:property name="joint3_effort" value="8"/>
+
+        <xacro:property name="joint4_offset_x" value="0.220"/>
+        <xacro:property name="joint4_offset_y" value="0."/>
+        <xacro:property name="joint4_offset_z" value="0.0565"/>
+        <xacro:property name="joint4_lower" value="-3.14"/>
+        <xacro:property name="joint4_upper" value="3.14"/>
+        <xacro:property name="joint4_velocity" value="1"/>
+        <xacro:property name="joint4_effort" value="8"/>
+
+        <xacro:property name="joint5_offset_x" value="0.07"/>
+        <xacro:property name="joint5_offset_y" value="0.038"/>
+        <xacro:property name="joint5_offset_z" value="0."/>
+        <xacro:property name="joint5_lower" value="-3.14"/>
+        <xacro:property name="joint5_upper" value="3.14"/>
+        <xacro:property name="joint5_velocity" value="1"/>
+        <xacro:property name="joint5_effort" value="8"/>
+
+        <xacro:property name="joint6_offset_x" value="0.0265"/>
+        <xacro:property name="joint6_offset_y" value="0."/>
+        <xacro:property name="joint6_offset_z" value="-0.038"/>
+        <xacro:property name="joint6_lower" value="-3.14"/>
+        <xacro:property name="joint6_upper" value="3.14"/>
+        <xacro:property name="joint6_velocity" value="1"/>
+        <xacro:property name="joint6_effort" value="8"/>
+        <link name="base_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${base_link_mass}"/>
+                <origin xyz="${base_link_x} ${base_link_y} ${base_link_z}"/>
+                <inertia ixx="${base_link_ixx}" ixy="${base_link_ixy}" ixz="${base_link_ixz}"
+                         iyy="${base_link_iyy}" iyz="${base_link_iyz}"
+                         izz="${base_link_izz}"/>
+            </inertial>
+        </link>
+        <joint name="fixed_base" type="fixed">
+            <parent link="world"/>
+            <child link="base_link"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </joint>
+        <link name="link1">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link1.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link1.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${link1_mass}"/>
+                <origin xyz="${link1_x} ${link1_y} ${link1_z}"/>
+                <inertia ixx="${link1_ixx}" ixy="${link1_ixy}" ixz="${link1_ixz}"
+                         iyy="${link1_iyy}" iyz="${link1_iyz}"
+                         izz="${link1_izz}"/>
+            </inertial>
+        </link>
+        <link name="link2">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link2.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link2.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${link2_mass}"/>
+                <origin xyz="${link2_x} ${link2_y} ${link2_z}"/>
+                <inertia ixx="${link2_ixx}" ixy="${link2_ixy}" ixz="${link2_ixz}"
+                         iyy="${link2_iyy}" iyz="${link2_iyz}"
+                         izz="${link2_izz}"/>
+            </inertial>
+        </link>
+        <link name="link3">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link3.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link3.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${link3_mass}"/>
+                <origin xyz="${link3_x} ${link3_y} ${link3_z}"/>
+                <inertia ixx="${link3_ixx}" ixy="${link3_ixy}" ixz="${link3_ixz}"
+                         iyy="${link3_iyy}" iyz="${link3_iyz}"
+                         izz="${link3_izz}"/>
+            </inertial>
+        </link>
+        <link name="link4">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link4.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link4.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${link4_mass}"/>
+                <origin xyz="${link4_x} ${link4_y} ${link4_z}"/>
+                <inertia ixx="${link4_ixx}" ixy="${link4_ixy}" ixz="${link4_ixz}"
+                         iyy="${link4_iyy}" iyz="${link4_iyz}"
+                         izz="${link4_izz}"/>
+            </inertial>
+        </link>
+        <link name="link5">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link5.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link5.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${link5_mass}"/>
+                <origin xyz="${link5_x} ${link5_y} ${link5_z}"/>
+                <inertia ixx="${link5_ixx}" ixy="${link5_ixy}" ixz="${link5_ixz}"
+                         iyy="${link5_iyy}" iyz="${link5_iyz}"
+                         izz="${link5_izz}"/>
+            </inertial>
+        </link>
+        <link name="link6">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link6.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0. 0. 0." rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://swing_boy_pro/meshes/link6.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${link6_mass}"/>
+                <origin xyz="${link6_x} ${link6_y} ${link6_z}"/>
+                <inertia ixx="${link6_ixx}" ixy="${link6_ixy}" ixz="${link6_ixz}"
+                         iyy="${link6_iyy}" iyz="${link6_iyz}"
+                         izz="${link6_izz}"/>
+            </inertial>
+        </link>
+
+        <joint name="joint1" type="revolute">
+            <parent link="base_link"/>
+            <child link="link1"/>
+            <origin xyz="${joint1_offset_x} ${joint1_offset_y} ${joint1_offset_z}" rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <limit lower="${joint1_lower}" upper="${joint1_upper}" velocity="${joint1_velocity}" effort="${joint1_effort}"/>
+        </joint>
+
+        <joint name="joint2" type="revolute">
+            <parent link="link1"/>
+            <child link="link2"/>
+            <origin xyz="${joint2_offset_x} ${joint2_offset_y} ${joint2_offset_z}" rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+            <limit lower="${joint2_lower}" upper="${joint2_upper}" velocity="${joint2_velocity}" effort="${joint2_effort}"/>
+        </joint>
+
+        <joint name="joint3" type="revolute">
+            <parent link="link2"/>
+            <child link="link3"/>
+            <origin xyz="${joint3_offset_x} ${joint3_offset_y} ${joint3_offset_z}" rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+            <limit lower="${joint3_lower}" upper="${joint3_upper}" velocity="${joint3_velocity}" effort="${joint3_effort}"/>
+        </joint>
+
+        <joint name="joint4" type="revolute">
+            <parent link="link3"/>
+            <child link="link4"/>
+            <origin xyz="${joint4_offset_x} ${joint4_offset_y} ${joint4_offset_z}" rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+            <limit lower="${joint4_lower}" upper="${joint4_upper}" velocity="${joint4_velocity}" effort="${joint4_effort}"/>
+        </joint>
+
+        <joint name="joint5" type="revolute">
+            <parent link="link4"/>
+            <child link="link5"/>
+            <origin xyz="${joint5_offset_x} ${joint5_offset_y} ${joint5_offset_z}" rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <limit lower="${joint5_lower}" upper="${joint5_upper}" velocity="${joint5_velocity}" effort="${joint5_effort}"/>
+        </joint>
+
+        <joint name="joint6" type="revolute">
+            <parent link="link5"/>
+            <child link="link6"/>
+            <origin xyz="${joint6_offset_x} ${joint6_offset_y} ${joint6_offset_z}" rpy="0 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="${joint6_lower}" upper="${joint6_upper}" velocity="${joint6_velocity}" effort="${joint6_effort}"/>
+        </joint>
+
+        <link name="EE"/>
+        <joint name="EE_fixed" type="fixed">
+            <parent link="link6"/>
+            <child link="EE"/>
+            <origin xyz="0.2 0 0.035" rpy="0 0 0"/>
+        </joint>
+    </xacro:macro>
+</robot>
